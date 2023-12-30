@@ -1,0 +1,47 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<main>
+
+  <!-- {% include 'includes/pre-loader.html' %} -->
+
+  <div class="section section-sm pb-0 mb-n4">
+    <div class="container">
+      <div class="row justify-content-center">
+        <h2 class="text-center">Brain Tumor Classification</h2>
+      </div>
+    </div>
+  </div>
+  <div class="section section-md pb-0" style="height: 100%; min-height: 60vh;">
+    <div class="container">
+      <div class="mx-5">
+        <form action="{% url 'classifier' %}" method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+          <div class="mb-3">
+            <label for="formFile" class="form-label">Please upload a brain MRI images</label>
+            <input class="form-control" type="file" id="formFile" name="image">
+          </div>
+
+          <button class="btn btn-primary" type="submit">Submit</button>
+        </form>
+
+        {% if hasil is not None %}
+          <div class="mt-5">
+            <h5>Input Image</h5>
+            <img src="data:image/png;base64,{{ input_image }}" alt="Uploaded image">
+
+            <div class="mt-4">
+              <h4>Probability Score : {{ probabilitas }}</h4>
+              <h4>Classification Result : <span class="{{ hasil|yesno:'text-danger,text-success' }}">{{ hasil|yesno:'Tumor,Non-Tumor' }}</span></h4>
+            </div>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+
+</main>
+
+{% endblock content %}

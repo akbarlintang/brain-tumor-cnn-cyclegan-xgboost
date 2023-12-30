@@ -1,0 +1,56 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<main>
+
+  <!-- {% include 'includes/pre-loader.html' %} -->
+
+  <div class="section section-sm pb-0 mb-n4">
+    <div class="container">
+      <div class="row justify-content-center">
+        <h2 class="text-center">MRI Images Generator</h2>
+      </div>
+    </div>
+  </div>
+  <div class="section section-md pb-0">
+    <div class="container">
+      <div class="mx-5">
+        <div class="mb-3">
+          <label class="my-1 me-2" for="inlineFormCustomSelectPref">Please select a generator</label>
+          <select class="form-select" id="inlineFormCustomSelectPref" aria-label="Default select example">
+              <option selected>Select generator</option>
+              <option value="1">Yes</option>
+              <option value="0">No</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label for="formFile" class="form-label">Please upload a brain MRI images</label>
+          <input class="form-control" type="file" id="formFile">
+        </div>
+
+        <button class="btn btn-primary" type="button">Submit</button>
+
+        <div class="mt-5">
+          <div class="mt-4">
+            <h4>Selected Generator : <span class="text-danger">Yes</span></h4>
+          </div>
+          <div class="row">
+            <div class="col">
+              <h5>Input Image</h5>
+              <img src="{% static 'img/train_image_0133.png' %}" alt="">
+            </div>
+            <div class="col">
+              <h5>Output Image</h5>
+              <img src="{% static 'img/generated_1_yes_0054.png' %}" alt="">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+{% endblock content %}

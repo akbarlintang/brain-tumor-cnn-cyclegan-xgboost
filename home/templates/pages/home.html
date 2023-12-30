@@ -1,0 +1,131 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<main>
+
+  <!-- {% include 'includes/pre-loader.html' %} -->
+
+  <!-- Hero -->
+  <section class="section-header overflow-hidden pt-7 pt-lg-8 pb-9 pb-lg-12 bg-primary text-white">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+          <div class="bootstrap-big-icon d-none d-lg-block">
+            <img class="navbar-brand-dark" src="{% static 'img/icon_brain_white.png' %}" alt="Logo light">
+          </div>
+          <h1 class="fw-bolder display-2">
+            Brain MRI System
+          </h1>
+          <h2 class="lead fw-normal text-muted mb-4 px-lg-10">
+            Tools for Classification and Generation of Brain MRI Images
+          </h2>
+        </div>
+      </div>
+    </div>
+    <figure class="position-absolute bottom-0 left-0 w-100 d-none d-md-block mb-n2"><svg class="fill-white"
+        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3000 185.4">
+        <path d="M3000,0v185.4H0V0c496.4,115.6,996.4,173.4,1500,173.4S2503.6,115.6,3000,0z"></path>
+      </svg></figure>
+  </section>
+
+  <section class="section section-lg">
+    <div class="container">
+      <div class="row justify-content-between align-items-center mb-5 mb-lg-7">
+        <div class="col-12 col-lg-5 mb-5 mb-lg-0 order-lg-2">
+          <h2 class="h1">Classifier</h2>
+          <p class="mb-4 lead fw-bold">Classify Brain MRI Images</p>
+          <p class="mb-4">This tool utilizes a combination of CNN, CycleGAN, and XGBoost model that have been trained on 354 brain MRI images to classify tumors within a given brain MRI image.</p>
+          <a href="{% url 'classifier' %}" class="btn btn-outline-primary">Classify Now</a>
+        </div>
+        <div class="col-12 col-lg-6 order-lg-1 text-center">
+          <img src="{% static 'img/brain_classification.png' %}" style="max-height: 500px;" alt="classifier overview">
+        </div>
+      </div>
+      <div class="row justify-content-between align-items-center mb-5 mb-lg-7">
+        <div class="col-12 col-lg-6 order-lg-2 text-center">
+          <img src="{% static 'img/brain_generation.png' %}" style="max-height: 500px;" alt="generator overview">
+        </div>
+        <div class="col-12 col-lg-5 mb-5 mb-lg-0 order-lg-1">
+          <h2 class="h1">Generator</h2>
+          <p class="mb-4 lead fw-bold">Generate Brain MRI Images</p>
+          <p class="mb-4">This tool utilizes the CycleGAN algorithm to transfer characteristics between non-tumor and tumor images.</p>
+          <a href="{% url 'generator' %}" class="btn btn-outline-primary">Generate Now</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-sm">
+    <div class="container">
+      <h2 class="text-center">About</h2>
+
+      <div class="row justify-content-center mt-4">
+        <div class="col-12 col-lg-8">
+          <!--Accordion-->
+          <div class="accordion" id="accordionExample1">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        What is the purpose of this system?
+                    </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                    data-bs-parent="#accordionExample1">
+                    <div class="accordion-body">
+                      This signifies the implementation of my undergraduate research thesis in Computer Science at UNNES. It involves the utilization of a combined algorithm comprising CNN, CycleGAN, and XGBoost to create a brain tumor classification model for brain MRI images. This system comprises of two main functions, a classifier and a generator.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingTwo">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        How does the classifier model work?
+                    </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                    data-bs-parent="#accordionExample1">
+                    <div class="accordion-body">
+                      The classifier model utilizes a combination of CNN, CycleGAN, and XGBoost algorithms to classify a brain MRI image. CycleGAN aids in data augmentation during model training, while CNN comprehends features within the input data and generates classification probabilities during training. Subsequently, XGBoost uses the probabilities from CNN to classify the input data. Currently, the classifier model achieved 97.37% accuracy on 38 testing data.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingThree">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                      data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                      How does the generator model work?
+                  </button>
+              </h2>
+              <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                  data-bs-parent="#accordionExample1">
+                  <div class="accordion-body">
+                    The generator model utilizes the CycleGAN algorithm to generate a new brain MRI image by transferring characteristics between tumor and non-tumor images. The model has been trained on 177 brain MRI images over 200 epochs.
+                  </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingFour">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                        Where was the data for this system sourced from?
+                    </button>
+                </h2>
+                <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
+                    data-bs-parent="#accordionExample1">
+                    <div class="accordion-body">
+                      The data used in this research was acquired from the Kaggle dataset named <span class="text-info"><a href="https://www.kaggle.com/datasets/navoneel/brain-mri-images-for-brain-tumor-detection" target="_blank">'Brain MRI Images for Brain Tumor Detection'</a></span>. The dataset comprises of 253 brain MRI images, categorized into two classes: 'yes' and 'no.'
+                    </div>
+                </div>
+            </div>
+          </div>
+          <!--End of Accordion-->
+        </div>
+      </div>
+  </div>
+  </section>
+</main>
+
+{% endblock content %}

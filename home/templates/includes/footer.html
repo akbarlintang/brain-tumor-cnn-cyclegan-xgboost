@@ -1,0 +1,52 @@
+{% load static %}
+
+<footer class="footer mt-6 pt-6 pb-5 bg-primary text-white">
+    <div class="container">
+        <div class="row gx-6">
+            <div class="col-md-6">
+            <!-- <img class="navbar-brand-dark mb-4" height="35" src="{% static 'assets/img/brand/light.svg' %}" alt="Logo light"> -->
+            <!-- <img class="navbar-brand-dark mb-4" height="35" src="{% static 'img/icon_brain_white.png' %}" alt="Logo light"> -->
+                <p>This is a Brain MRI classifier and generator system developed as an undergraduate thesis in the Computer Science major. The system utilizes a combination of CNN, CycleGAN, and XGBoost algorithms.</p>
+                <ul class="social-buttons mb-5 mb-lg-0">
+                    <li>
+                        <a href="https://www.linkedin.com/in/akbar-lintang-aji-624877194/" target="_blank" class="icon-white me-2"
+                            aria-label="linkedin social link">
+                            <span class="fab fa-linkedin"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/akbarlintang" aria-label="github social link" target="_blank" class="icon-white me-2">
+                            <span class="fab fa-github"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://gitlab.com/akbarlintang_" aria-label="gitlab social link" target="_blank" class="icon-white me-2">
+                            <span class="fab fa-gitlab"></span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <span class="h5">Brain MRI System</span>
+                <ul class="footer-links mt-2">
+                    <li><a href="{% url 'index' %}">Home</a></li>
+                    <li><a href="{% url 'classifier' %}">Classifier</a></li>
+                    <li><a href="{% url 'generator' %}">Generator</a></li>
+                </ul>
+            </div>
+        </div>
+        <hr class="bg-secondary my-3 my-lg-5">
+        <div class="row">
+            <div class="col mb-md-0">
+                <!-- <a href="https://themesberg.com" target="_blank" class="d-flex justify-content-center mb-3">
+                    <img src="{% static 'assets/img/themesberg.svg' %}" height="30" class="me-2" alt="Themesberg Logo">
+                    <p class="text-white fw-bold footer-logo-text m-0">Themesberg</p>
+                </a> -->
+                <div class="d-flex text-center justify-content-center align-items-center" role="contentinfo">
+                    <p class="fw-normal font-small mb-0">
+                        &copy; 2023 Brain MRI System - Coded by Akbar Lintang Aji.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
